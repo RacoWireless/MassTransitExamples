@@ -19,30 +19,8 @@ namespace MassTransitChat
         /// <param name="messageContext">MassTransit gives this to you, for supporting retry, etc</param>
         public void Consume(IConsumeContext<ChatMessage> messageContext)
         {
-            try
-            {
-
-                var message = messageContext.Message;
-                //Console.WriteLine("{0} [{1}]: {2}", DateTime.Now, message.From, message.Message);
-                //Connect to a database
-                //Do something else
-                //Something could fail
-            }
-            catch (Exception ex) //
-            {
-                var retryCount = messageContext.RetryCount;
-
-                if (retryCount > 5)
-                {
-                    throw;
-                }
-                else
-                {
-                    messageContext.RetryLater();
-                }
-            }
-
-
+            var message = messageContext.Message;
+            Console.WriteLine("{0} [{1}]: {2}", DateTime.Now, message.From, message.Message);
         }
 
 
@@ -58,7 +36,7 @@ namespace MassTransitChat
             {
                 Console.WriteLine("{0} is asking who's there", message.Name);
             }
-            
+
             var response = new WhosThereResponse
             {
                 Name = _name
