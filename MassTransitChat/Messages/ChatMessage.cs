@@ -1,5 +1,4 @@
-﻿
-namespace MassTransitChat.Messages
+﻿namespace MassTransitChat.Messages
 {
     public class ChatMessage
     {

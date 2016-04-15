@@ -1,6 +1,6 @@
 ﻿namespace MassTransitChat.Messages
 {
-    public class WhosThereResponse
+    public class PlayerLeftChat
     {
         public string Name { get; set; }
     }
